@@ -292,12 +292,14 @@ ggplot(dt, aes(x = Model, y = Likelihood, fill = Method, label = Likelihood)) +
 # Conclusions
 
 Risk Factor Analysis
+
 - Classic pattern of malaria risk factors (e.g. age, wealth) observed in the Bunkpurugu-Yunyoo data set
 - Modest urban centers have a significant effect on early childhood malaria prevalence
 - Age-related risk was more significant during the dry season
 - Distance to nearest urban center and health facilities were significant nonlinear risk patterns
 
 Application of BMA
+
 - Flexibility: Models can be adjusted to account for complex patterns
 - Interpret ability: Individuals parameters can be directly related to dependent/outcome variable
 - Uncertainty: Credible intervals are easily constructed
