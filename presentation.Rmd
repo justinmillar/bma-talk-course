@@ -66,5 +66,43 @@ leaflet() %>%
 - Location of Bunkpurungu-Yunyoo
 - Relatively small area, ~ 30-40 km2
 
+---
+background-image: url('img/byd-heatmap.png')
+background-size: contain
+class: blank
+
+???
+- High degree of spatial heterogeneity 
+- Rainy season: 20-30% urban areas, 70-80% rural areas (10 km)
+
+---
+background-image: url('img/risk-slide-1.png')
+background-size: contain
+class: blank
+
+---
+background-image: url('img/risk-slide-2.png')
+background-size: contain
+class: blank
+
+---
+background-image: url('img/risk-slide-3.png')
+background-size: contain
+class: blank
+
+---
+
+# Too much information can be a problem
+
+
+
+---
+background-image: url('img/needle.png')
+background-size: contain
+class: full
+
+
+---
+
 
 
