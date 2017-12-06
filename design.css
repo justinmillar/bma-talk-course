@@ -1,5 +1,5 @@
 .remark-slide-content {
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
   border-top: 80px solid #001159;
   font-size: 20px;
   font-weight: 300;
@@ -8,7 +8,7 @@
 }
 
 .title-slide .inverse .remark-slide-content {
-  background-color: #FAFAFA;
+  background-color: #FFFFFF;
 }
 
 .inverse {
@@ -48,7 +48,7 @@
   font-size: 45px;
   margin-top: -95px;
   margin-left: -00px;
-  color: #FAFAFA;
+  color: #FFFFFF;
 }
 
 .remark-slide-content > inverse {
@@ -81,8 +81,8 @@ position: absolute;
 }
 
 .title-slide {
-  background-color: #FAFAFA;
-  border-top: 80px solid #FAFAFA;
+  background-color: #FFFFFF;
+  border-top: 80px solid #FFFFFF;
 }
 
 .title-slide > h1  {
@@ -123,7 +123,7 @@ position: absolute;
 .inverse .remark-slide-number {
   font-size: 13pt;
   font-family: 'Open Sans';
-  color: #FAFAFA;
+  color: #FFFFFF;
   opacity: 1;
 }
 
