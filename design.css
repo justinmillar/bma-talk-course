@@ -28,6 +28,15 @@
   border-bottom: 0px solid;
 }
 
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+
 .remark-slide-content > h1 {
   font-family: 'Lato';
   font-weight: normal;

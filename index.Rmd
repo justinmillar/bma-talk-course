@@ -18,7 +18,34 @@ options(htmltools.dir.version = FALSE)
 ```
 
 
+
 # Brief background on Malaria 
+
+.pull-left[
+- In 2016, approximately 216 million cases and 445,000 malaria deaths
+
+- Nearly half the world's population is at risk
+
+- Millienum Development Goals outlined specific targets for control/eliminatation
+
+  * Significant funding investments (US and Worldwide)
+  
+  * Led to dramatic decreses in disease burden
+  ]
+  
+.pull-right[
+
+![](img/malaria-life-cycle-small.png)
+
+]
+
+
+???
+
+- Over 90% of cases occur in SSA 
+- Nearly 95% of mortalities occur in children < 5 years in SAA
+- $2.7 billion US in 2016
+- ITNs, IRS, ACT
 
 ---
 background-image: url('img/map-combined.png')
@@ -27,23 +54,13 @@ class: blank
 
 ???
 
-- Examples of the various ecological landscapes that exist in BYD
-- Occur in relatively small area
-- Modest Urban Centers
-
-
----
-background-image: url('img/landscapes.png')
-background-size: contain
-class: blank
-
-???
-
-- Examples of the various ecological landscapes that exist in BYD
-- Occur in relatively small area
-- Modest Urban Centers
+- Progress made since 2000, estimated 2 million lives saved
+- Nearly 50% reduction worldwide
+- Despite this progress, many regions continue to experience high transmission rates and disease burden
+- Example district in northern Ghana
 
 ---
+
 class: blank, middle, center
 ```{r out.width='100%', out.height='100%', fig.height=6, echo=FALSE, message=FALSE, warning=FALSE}
 library(leaflet)
@@ -64,7 +81,19 @@ leaflet() %>%
 
 ???
 - Location of Bunkpurungu-Yunyoo
-- Relatively small area, ~ 30-40 km2
+- Relatively small area, ~ 30-40 across in both directions
+
+---
+
+background-image: url('img/landscapes.png')
+background-size: contain
+class: blank
+
+???
+
+- Examples of the various ecological landscapes that exist in BYD
+- Occur in relatively small area
+- Modest Urban Centers
 
 ---
 background-image: url('img/byd-heatmap.png')
@@ -74,35 +103,131 @@ class: blank
 ???
 - High degree of spatial heterogeneity 
 - Rainy season: 20-30% urban areas, 70-80% rural areas (10 km)
+- Near univerisal bednet coverage, IRS
+- Drives need for targeted interventions
+- Need for comprehensive evaluation of risk factors on a local level
 
 ---
 background-image: url('img/risk-slide-1.png')
 background-size: contain
 class: blank
 
+???
+
+- Malaria is a vector-borne disease, creating three critical stages for risk factors
+
 ---
 background-image: url('img/risk-slide-2.png')
 background-size: contain
 class: blank
+
+???
+
+- There are MANY factors assocaited with each of levels
+- Common in many other fields
 
 ---
 background-image: url('img/risk-slide-3.png')
 background-size: contain
 class: blank
 
----
+???
 
-# Too much information can be a problem
+- And these patterns can be complex
+  * Interactions
+  * Nonlinear effects
 
-
+- In many cases data is sparse
 
 ---
 background-image: url('img/needle.png')
 background-size: contain
 class: full
 
+???
+
+- This is referred as the Small N, Large P
+
 
 ---
+
+# Too much information can be a problem
+
+.pull-left[
+- Possible Models = $2^P - 1$
+
+- If $P$ is large, this can be a huge number
+
+- Increased risk of overfitting
+
+- Several important qualities to consider:
+  * Interpretability
+  * Predictive Ability
+  * Complexitity
+  * Uncertainty
+]
+
+.pull-right[
+
+![](img/overfit-small.png)
+
+]
+
+???
+- Too much predictive or explainatory info can create big problems
+- explain overfitting
+- outline why each of these properties are important
+- need for variable selection: stepwise regression, ridge, lasso
+
+---
+class: middle, center
+
+## Bayesian Model Averaging
+
+
+![](img/bma-fig.png)
+
+???
+- An alternative approach to variable selection
+- actually model selection
+- works by randomly adjusting the model, fitting the parameters, and averaging
+---
+background-image: url('img/bma-1.png')
+background-size: contain
+
+---
+background-image: url('img/bma-2.png')
+background-size: contain
+
+---
+background-image: url('img/bma-3.png')
+background-size: contain
+
+---
+background-image: url('img/bma-4.png')
+background-size: contain
+
+---
+background-image: url('img/bma-5.png')
+background-size: contain
+
+---
+background-image: url('img/bma-6.png')
+background-size: contain
+
+---
+background-image: url('img/bma-7.png')
+background-size: contain
+
+???
+- Repeat over and over (10,000 iterations)
+- Each time the regression coefficents are estimated
+- Important covariates tend to be included
+- Average all models together
+
+---
+
+
 
 
 
