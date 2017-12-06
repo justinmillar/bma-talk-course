@@ -101,6 +101,7 @@ background-size: contain
 class: blank
 
 ???
+- Describe data: ~12,000 children over six biannual surveys
 - High degree of spatial heterogeneity 
 - Rainy season: 20-30% urban areas, 70-80% rural areas (10 km)
 - Near univerisal bednet coverage, IRS
@@ -226,8 +227,52 @@ background-size: contain
 - Average all models together
 
 ---
+background-image: url('img/risk-factor-1.png')
+background-size: contain
+
+# Outputs
+
+???
+- 29 covariates (imaging trying to create individual models)
+- Credible intervals
+- observations: classic patterns, distance measures
+- are there more complex patterns? Seasonal dependancies? nonlinear relationship?
+
+---
+background-image: url('img/risk-factor-2.png')
+background-size: contain
+
+# Seasonal Interactions
+
+---
+
+background-image: url('img/risk-factor-3.png')
+background-size: contain
+
+# Linear splines
+
+---
+class: inverse, center, middle
+
+# Overfitting?
+
+???
+- after adding all of these additional covariates, is our model still any good?
+
+---
+# Accessing Prediction Performance
+```{r predict, echo=FALSE}
+library(ggplot2)
+
+model <- c(rep("Base Model (p = 29)", 3), rep("Enhanced Model (p = 73)", 3))
+method <- rep(c("Logistic", "Lasso", "BMA"), 2)
+likeli <- c(-1022.49, -988.92, -976.47, -1061.66, -1026.95, -975.06)
+
+dt <- data.frame(Model = model, Method = method, Likelihood = likeli)
 
 
+ggplot(dt, aes(x = Model, y = Likelihood, fill = Method)) +
+  geom_col(position = "dodge") 
 
-
+```
 
