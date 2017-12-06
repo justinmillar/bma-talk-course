@@ -1,0 +1,70 @@
+---
+title: "Detecting Risk Factors for Residual Malaria using Bayesian Model Averaging"
+#: "FOR 6933"
+author: "Justin Millar"
+date: "December 5th, 2017"
+output:
+  xaringan::moon_reader:
+    css: ["design.css", "design-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+
+# Brief background on Malaria 
+
+---
+background-image: url('img/map-combined.png')
+background-size: contain
+class: blank
+
+???
+
+- Examples of the various ecological landscapes that exist in BYD
+- Occur in relatively small area
+- Modest Urban Centers
+
+
+---
+background-image: url('img/landscapes.png')
+background-size: contain
+class: blank
+
+???
+
+- Examples of the various ecological landscapes that exist in BYD
+- Occur in relatively small area
+- Modest Urban Centers
+
+---
+class: blank, middle, center
+```{r out.width='100%', out.height='100%', fig.height=6, echo=FALSE, message=FALSE, warning=FALSE}
+library(leaflet)
+library(rgdal)
+library(sp)
+
+byd_shp <- readOGR("shp/Study_Area_NEW.shp", verbose = FALSE)
+
+leaflet() %>%
+  addPolygons(data = byd_shp,
+                  color = "black",
+                  weight = 2,
+                  opacity = 1,
+                  fillOpacity = 0.2) %>%
+  addTiles() %>% addScaleBar(position = 'topleft') %>% setView(-1, 8, zoom = 6)
+
+```
+
+???
+- Location of Bunkpurungu-Yunyoo
+- Relatively small area, ~ 30-40 km2
+
+
+
