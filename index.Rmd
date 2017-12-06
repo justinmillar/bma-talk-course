@@ -26,11 +26,11 @@ options(htmltools.dir.version = FALSE)
 
 - Nearly half the world's population is at risk
 
-- Millienum Development Goals outlined specific targets for control/eliminatation
+- Millennium Development Goals outlined specific targets for control/elimination
 
   * Significant funding investments (US and Worldwide)
   
-  * Led to dramatic decreses in disease burden
+  * Led to dramatic decreases in disease burden
   ]
   
 .pull-right[
@@ -43,7 +43,7 @@ options(htmltools.dir.version = FALSE)
 ???
 
 - Over 90% of cases occur in SSA 
-- Nearly 95% of mortalities occur in children < 5 years in SAA
+- Nearly 95% of moralities occur in children < 5 years in SAA
 - $2.7 billion US in 2016
 - ITNs, IRS, ACT
 
@@ -104,7 +104,7 @@ class: blank
 - Describe data: ~12,000 children over six biannual surveys
 - High degree of spatial heterogeneity 
 - Rainy season: 20-30% urban areas, 70-80% rural areas (10 km)
-- Near univerisal bednet coverage, IRS
+- Near universal bed net coverage, IRS
 - Drives need for targeted interventions
 - Need for comprehensive evaluation of risk factors on a local level
 
@@ -124,7 +124,7 @@ class: blank
 
 ???
 
-- There are MANY factors assocaited with each of levels
+- There are MANY factors associated with each of levels
 - Common in many other fields
 
 ---
@@ -159,12 +159,12 @@ class: full
 
 - If $P$ is large, this can be a huge number
 
-- Increased risk of overfitting
+- Increased risk of over-fitting
 
 - Several important qualities to consider:
-  * Interpretability
+  * Interpret ability
   * Predictive Ability
-  * Complexitity
+  * Complexity
   * Uncertainty
 ]
 
@@ -175,10 +175,10 @@ class: full
 ]
 
 ???
-- Too much predictive or explainatory info can create big problems
-- explain overfitting
+- Too much predictive or explanatory info can create big problems
+- explain over-fitting
 - outline why each of these properties are important
-- need for variable selection: stepwise regression, ridge, lasso
+- need for variable selection: step wise regression, ridge, lasso
 
 ---
 class: middle, center
@@ -222,7 +222,7 @@ background-size: contain
 
 ???
 - Repeat over and over (10,000 iterations)
-- Each time the regression coefficents are estimated
+- Each time the regression coefficients are estimated
 - Important covariates tend to be included
 - Average all models together
 
@@ -236,7 +236,7 @@ background-size: contain
 - 29 covariates (imaging trying to create individual models)
 - Credible intervals
 - observations: classic patterns, distance measures
-- are there more complex patterns? Seasonal dependancies? nonlinear relationship?
+- are there more complex patterns? Seasonal dependencies? nonlinear relationship?
 
 ---
 background-image: url('img/risk-factor-2.png')
@@ -258,10 +258,14 @@ class: inverse, center, middle
 
 ???
 - after adding all of these additional covariates, is our model still any good?
+- out-of-sample prediction
+- season to season prediction
+- Logistic Regression and Lasso
 
 ---
 # Accessing Prediction Performance
-```{r predict, echo=FALSE}
+
+```{r predict, echo=FALSE, fig.width=10, fig.align='center'}
 library(ggplot2)
 
 model <- c(rep("Base Model (p = 29)", 3), rep("Enhanced Model (p = 73)", 3))
@@ -271,8 +275,38 @@ likeli <- c(-1022.49, -988.92, -976.47, -1061.66, -1026.95, -975.06)
 dt <- data.frame(Model = model, Method = method, Likelihood = likeli)
 
 
-ggplot(dt, aes(x = Model, y = Likelihood, fill = Method)) +
-  geom_col(position = "dodge") 
+ggplot(dt, aes(x = Model, y = Likelihood, fill = Method, label = Likelihood)) +
+  geom_col(position = "dodge") + 
+  scale_y_reverse(limits = c(-960, -1075), oob = scales::squish) +
+  geom_text(position = position_dodge(width =  0.9), size = 4) +
+  ylab("log Likeihood") +
+  theme_classic()
 
 ```
+???
+- Explain the graph (values)
+- Both Lasso and BMA are also way better than Logistic
+- Some instances were Lasso slightly outperformed BMA for base model
+- BMA always out-performed Lasso for the extended model 
+
+---
+
+# Conclusions
+
+## Risk Factor Analysis
+- Classic pattern of malaria risk factors (e.g. age, wealth) observed in the Bunkpurugu-Yunyoo data set
+- Modest urban centers have a significant effect on early childhood malaria prevalence
+- Age-related risk was more significant during the dry season
+- Distance to nearest urban center and health facilities were significant nonlinear risk patterns
+
+## Application of BMA
+- Flexibility: Models can be adjusted to account for complex patterns
+- Interpret ability: Individuals parameters can be directly related to dependent/outcome variable
+- Uncertainty: Credible intervals are easily constructed
+- Prediction: Outperformed logistic regression and was resistant to over-parameterization
+
+---
+class: inverse, center, middle
+
+# Questions?
 
